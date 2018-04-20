@@ -1,0 +1,10 @@
+---
+- name: generate private key
+  openssl_privatekey:
+    path: "{{ ca_key_path }}"
+
+- name: generate signing certificate
+  shell: openssl req -new -x509 -days 730 \
+    -subj "/C=US/ST=Massachusetts/L=Boston/O=Digital Lumens/CN={{ ca_common_name }}" \
+    -key {{ ca_key_path }} \
+    -out {{ ca_cert_path }}

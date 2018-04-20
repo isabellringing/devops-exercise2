@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  pre_tasks:
+    - fail: msg="this play requires cert_name to be set via `--extra-vars 'cert_name=<foo>'`"
+      when: cert_name is undefined
+    - fail: msg="this play requres ca_name to be set via `--extra-vars 'ca_name=<foo>'`"
+      when: ca_name is undefined
+
+  vars:
+    ca_key_path: "../certs/{{ ca_name }}-ca.key"
+    ca_cert_path: "../certs/{{ ca_name }}-ca.crt"
+    client_key_path: "../certs/{{ cert_name }}-cert.key"
+    client_csr_path: "../certs/{{ cert_name }}-cert.csr"
+    client_cert_path: "../certs/{{ cert_name }}-cert.crt"
+    client_common_name: "{{ cert_name }}"
+    client_serial_number: "1"
+
+  roles:
+    - role: cert
