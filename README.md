@@ -3,7 +3,7 @@
 In this exercise, we need to take a trivial Go server, containerize it, and deploy it in a Docker host.
 The tricky part is that we want to use TLS certificates for authentication, so the deployed container must be configured to support this.
 
-We provide the simple server and a client to test with, as well as a head start on generating a certificate authority and certificates for both the server and client. The server should be deployable to both an EC2 instance (which we will provide) and a local Docker host (like Docker for Mac). Make a private fork this repo and submit your answer in the form of a PR against your private fork.
+We provide the simple server and a client to test with, as well as a head start on generating a certificate authority and certificates for both the server and client. The server should be deployable to both an EC2 instance (which we will provide) and a local Docker host (like Docker for Mac). Make a private fork of this repo and submit your answer in the form of a PR against your private fork.
 
 You will also be invited to our Slack server so that you can ask any questions you might have.
 
